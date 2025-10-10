@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noor Candles & Co. - Classic Luxury</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define custom colors and configuration */
+        :root {
+            --color-primary-bg: #FFFFFF; /* PURE WHITE (Main Page BG) */
+            --color-secondary-bg: #F7F7F7; /* Very Light Gray for contrast sections */
+            --color-dark-text: #365D65; /* DEEP TEAL (Main Text/Header Color, matching Logo BG) */
+            --color-accent-gold: #D2A96D; /* Soft Gold (Accent Color) */
+            --color-button-text-light: #F7F4F0; /* Cream/Off-White (Text on Gold Buttons) */
+        }
+        
+        /* Tailwind Configuration */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-bg': 'var(--color-primary-bg)',
+                        'secondary-bg': 'var(--color-secondary-bg)',
+                        'dark-text': 'var(--color-dark-text)',
+                        'accent-gold': 'var(--color-accent-gold)',
+                        'button-text-light': 'var(--color-button-text-light)',
+                    },
+                    boxShadow: {
+                        // Soft Gold glow
+                        'soft-glow': '0 0 20px rgba(210, 169, 109, 0.6)', 
+                        'classic-shadow': '0 8px 16px -4px rgba(54, 93, 101, 0.25)', /* Adjusted shadow color to match new teal */
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 1.2s ease-out',
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: 0, transform: 'translateY(40px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'], /* Elegant Serif for Headings */
+                        body: ['"Roboto"', 'sans-serif'], /* Clean Sans-serif for Body */
+                    }
+                }
+            }
+        }
+        
+        /* General Body Styling and Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary-bg); /* PURE WHITE */
+            color: var(--color-dark-text); /* Deep Teal Text for contrast */
+            
+            /* REMOVED LOGO WATERMARK CSS */
+        }
+        
+        /* Utility for content that reveals on scroll */
+        .reveal-on-scroll {
+            /* Start with opacity 0 and translate Y 20px */
+            opacity: 0; 
+            transform: translateY(20px);
+            /* Transition is fast and smooth */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            /* Fully visible and correct position */
+            opacity: 1; 
+            transform: translateY(0);
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-primary-bg min-h-screen text-dark-text p-4 sm:p-8">
+
+    <!-- Navigation -->
+    <header class="p-4 sticky top-0 bg-primary-bg z-50 shadow-classic-shadow border-b border-accent-gold/40">
+        <nav class="flex justify-between items-center max-w-7xl mx-auto">
+            <div class="flex items-center space-x-3">
+                <!-- Logo Image in Nav -->
+                <img src="uploaded:PHOTO-2025-10-06-22-56-13.jpg-595b32d0-2577-43fa-81f7-db447c812d7c" 
+                     alt="Noor Candles & Co. Logo" 
+                     onerror="this.onerror=null; this.src='https://placehold.co/48x48/F9F9F9/D2A96D?text=N';"
+                     class="w-12 h-12 rounded-full border-2 border-accent-gold shadow-md object-cover bg-secondary-bg">
+                <div class="text-3xl font-heading font-black text-dark-text tracking-wider hidden sm:block">
+                    Noor Candles & Co.
+                </div>
+            </div>
+            <div class="space-x-8 text-lg font-body font-medium">
+                <!-- Navigation links use smooth scrolling anchors -->
+                <a href="#shop" class="text-dark-text hover:text-accent-gold transition duration-300">Shop</a>
+                <a href="#story" class="text-dark-text hover:text-accent-gold transition duration-300">Our Story</a>
+                <a href="#contact" class="text-dark-text hover:text-accent-gold transition duration-300">Inquiry</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div id="main-content" class="max-w-7xl mx-auto">
+
+        <!-- 1. --- HERO BANNER SECTION --- -->
+        <section id="hero" class="h-[80vh] flex flex-col justify-center items-center text-center relative z-10">
+            <h1 class="text-6xl md:text-9xl font-heading font-extrabold text-dark-text mb-4 leading-tight animate-fade-up">
+                <span class="text-accent-gold block text-7xl md:text-9xl tracking-widest">NOOR</span>
+                The Art of Illumination
+            </h1>
+            <p class="text-xl font-body text-dark-text/70 mb-12 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+                Hand-poured luxury, designed with sustainable intent and infused with captivating, fine fragrances.
+            </p>
+            <a href="#shop" class="inline-block px-10 py-4 text-xl bg-accent-gold text-button-text-light font-body font-semibold border border-dark-text/30 rounded-full shadow-soft-glow hover:bg-opacity-90 transition-all duration-300 transform hover:scale-[1.05] animate-fade-up" style="animation-delay: 0.4s;">
+                Discover the Scents
+            </a>
+        </section>
+
+        <!-- 2. --- OUR STORY SECTION --- -->
+        <section id="story" class="py-24 px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Story Text -->
+                <div class="space-y-6 text-lg text-dark-text/90 reveal-on-scroll">
+                    <h2 class="text-5xl font-heading font-extrabold text-dark-text mb-6 border-l-4 border-accent-gold pl-4">
+                        A Legacy of Fine Fragrance
+                    </h2>
+                    <p>
+                        <span class="text-accent-gold font-bold">Noor Candles & Co.</span> was born from a passion for tradition and quality. The name, meaning "light," guides our promise to provide products that are pure, elegant, and ethically crafted.
+                    </p>
+                    <p>
+                        We use only the finest natural waxes and custom-blended essential oils. Every candle is **hand-poured in small batches**, ensuring meticulous attention to detail and a flawless, long-lasting burn. We believe luxury should be responsible.
+                    </p>
+                    <a href="#contact" class="inline-block mt-4 text-accent-gold border-b border-accent-gold/50 hover:border-accent-gold transition duration-300 font-medium">
+                        Read Our Full Commitment →
+                    </a>
+                </div>
+                <!-- Story Image Placeholder -->
+                <div class="rounded-xl overflow-hidden shadow-2xl border-4 border-accent-gold/50 reveal-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/600x400/365D65/D2A96D?text=Handcrafted+Quality" 
+                        alt="Close-up of a hand pouring wax into a candle jar" 
+                        class="w-full h-auto object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. --- FEATURED PRODUCTS SECTION (The Shop View) --- -->
+        <section id="shop" class="py-24 px-4 relative z-10 bg-secondary-bg shadow-inner">
+            <h2 class="text-5xl font-heading font-extrabold text-dark-text mb-16 text-center border-b-2 border-accent-gold/50 pb-4 max-w-xl mx-auto reveal-on-scroll">
+                The Signature Collection
+            </h2>
+            
+            <!-- Product Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Product Card 1: Desert Bloom -->
+                <div class="bg-primary-bg rounded-xl overflow-hidden shadow-classic-shadow border border-accent-gold/30 transition-all duration-300 transform hover:shadow-soft-glow reveal-on-scroll">
+                    <img src="https://placehold.co/400x300/365D65/D2A96D?text=Desert+Bloom" alt="Desert Bloom Candle" class="w-full h-64 object-cover border-b border-accent-gold/30">
+                    <div class="p-6 text-center">
+                        <h3 class="text-3xl font-heading font-bold text-dark-text mb-1">Desert Bloom</h3>
+                        <p class="text-sm font-body italic text-dark-text/70 mb-4">Jasmine, Sandalwood & Amber</p>
+                        <p class="text-dark-text mb-6 text-base">Rich, evocative, and warm, capturing the serene silence and heat of the desert night.</p>
+                        <button class="w-full py-3 bg-accent-gold text-button-text-light rounded-lg font-semibold hover:bg-opacity-90 transition duration-300 shadow-md">Add to Cart - $45</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Coastal Mist -->
+                <div class="bg-primary-bg rounded-xl overflow-hidden shadow-classic-shadow border border-accent-gold/30 transition-all duration-300 transform hover:shadow-soft-glow reveal-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/400x300/1E3A4D/D2A96D?text=Coastal+Mist" alt="Coastal Mist Candle" class="w-full h-64 object-cover border-b border-accent-gold/30">
+                    <div class="p-6 text-center">
+                        <h3 class="text-3xl font-heading font-bold text-dark-text mb-1">Coastal Mist</h3>
+                        <p class="text-sm font-body italic text-dark-text/70 mb-4">Sea Salt, Bergamot & White Tea</p>
+                        <p class="text-dark-text mb-6 text-base">Clean, bright, and airy. An invigorating blend that revitalizes your space instantly.</p>
+                        <button class="w-full py-3 bg-accent-gold text-button-text-light rounded-lg font-semibold hover:bg-opacity-90 transition duration-300 shadow-md">Add to Cart - $45</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: Midnight Spice -->
+                <div class="bg-primary-bg rounded-xl overflow-hidden shadow-classic-shadow border border-accent-gold/30 transition-all duration-300 transform hover:shadow-soft-glow reveal-on-scroll" style="transition-delay: 0.4s;">
+                    <img src="https://placehold.co/400x300/365D65/1E3A4D?text=Midnight+Spice" alt="Midnight Spice Candle" class="w-full h-64 object-cover border-b border-accent-gold/30">
+                    <div class="p-6 text-center">
+                        <h3 class="text-3xl font-heading font-bold text-dark-text mb-1">Midnight Spice</h3>
+                        <p class="text-sm font-body italic text-dark-text/70 mb-4">Cinnamon, Dark Vanilla & Oud</p>
+                        <p class="text-dark-text mb-6 text-base">A complex, cozy aroma, perfect for winter evenings and deep, luxurious relaxation.</p>
+                        <button class="w-full py-3 bg-accent-gold text-button-text-light rounded-lg font-semibold hover:bg-opacity-90 transition duration-300 shadow-md">Add to Cart - $45</button>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-16 reveal-on-scroll">
+                <a href="#" class="inline-block px-10 py-4 text-xl border-2 border-accent-gold text-dark-text rounded-full font-heading font-semibold hover:bg-accent-gold hover:text-button-text-light transition duration-300 shadow-md">
+                    View Entire Catalog
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. --- CONTACT SECTION (The Inquiry View) --- -->
+        <section id="contact" class="py-24 px-4 relative z-10">
+            <h2 class="text-5xl font-heading font-extrabold text-dark-text mb-16 text-center border-b-2 border-accent-gold/50 pb-4 max-w-xl mx-auto reveal-on-scroll">
+                Inquire & Connect
+            </h2>
+            
+            <div class="max-w-3xl mx-auto reveal-on-scroll">
+                <!-- Contact Info -->
+                <div class="bg-secondary-bg p-8 rounded-t-xl border border-accent-gold/30 border-b-0 text-center">
+                    <h3 class="text-3xl font-heading font-bold text-dark-text mb-4">General Inquiries</h3>
+                    <p class="text-lg text-dark-text/80 font-body mb-6">
+                        For wholesale, collaborations, or general questions, please fill out the form below.
+                    </p>
+                    <p class="flex items-center justify-center space-x-3 text-dark-text/90 font-body">
+                        <!-- Email Icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <span>info@noorcandles.co</span>
+                    </p>
+                </div>
+
+                <!-- Google Form Embed -->
+                <div class="shadow-xl border-x border-b border-accent-gold/30 rounded-b-xl overflow-hidden">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf04xH8cl6b8Qg4h4Xz3xngr7fRNNW64UpaEK0S-QhPI08oFQ/viewform?embedded=true" 
+                            class="w-full h-[700px] border-none"
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0">
+                        Loading…
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- END MAIN CONTENT CONTAINER -->
+
+    <!-- Footer -->
+    <footer class="bg-secondary-bg text-dark-text py-12 mt-16 border-t border-accent-gold/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 font-body">
+            <!-- Company Info -->
+            <div class="col-span-2 md:col-span-1">
+                <h3 class="text-xl font-heading font-bold text-dark-text mb-3">Noor Candles & Co.</h3>
+                <p class="text-sm text-dark-text/70 italic">Illuminating Your World Since 2025</p>
+            </div>
+
+            <!-- Navigation Links -->
+            <div>
+                <h3 class="text-lg font-heading font-semibold text-dark-text mb-3">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#shop" class="hover:text-accent-gold transition duration-300">Shop Collection</a></li>
+                    <li><a href="#story" class="hover:text-accent-gold transition duration-300">Our Story</a></li>
+                    <li><a href="#contact" class="hover:text-accent-gold transition duration-300">Inquiry</a></li>
+                    <li><a href="#" class="hover:text-accent-gold transition duration-300">Shipping & FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media/Connect -->
+            <div>
+                <h3 class="text-lg font-heading font-semibold text-dark-text mb-3">Connect</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>
+                        <a href="https://www.instagram.com/noor.candles.and.co?igsh=YnNwYW5oN3c3aGdy&utm_source=qr" 
+                           target="_blank" 
+                           class="hover:text-accent-gold transition duration-300 flex items-center space-x-2">
+                            <!-- Instagram Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-accent-gold">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Newsletter Placeholder -->
+            <div class="col-span-2 md:col-span-1">
+                <h3 class="text-lg font-heading font-semibold text-dark-text mb-3">Offers</h3>
+                <p class="text-sm text-dark-text/70 mb-4">Sign up for early access to new collections.</p>
+                <!-- Simplified Form Placeholder -->
+                <form onsubmit="event.preventDefault(); console.log('Thanks for subscribing!');">
+                    <input type="email" placeholder="Your Email" class="w-full p-2 rounded text-dark-text focus:outline-none focus:ring-2 focus:ring-accent-gold mb-2 border border-accent-gold/20 bg-primary-bg">
+                    <button type="submit" class="w-full bg-accent-gold text-button-text-light p-2 rounded hover:opacity-80 transition duration-300 font-semibold">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-accent-gold/20 text-center">
+            <p class="text-sm text-dark-text/60">&copy; 2025 Noor Candles & Co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Scroll Reveal Only -->
+    <script>
+        // --- SCROLL REVEAL LOGIC ---
+        
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once visible
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+    </script>
+</body>
+</html>
